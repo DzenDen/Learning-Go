@@ -12,23 +12,25 @@ rome := map [rune] int {
 	'D' : 500,
 	'M' : 1000,
 }
+// want to convert s to arabian numer
 s := "MMDCCLXXXIX"
 arab := make([]int, 0)
 sum := 0
+
+// making slice with arab numbers
 		for _, c := range s {
 			x := rome [c]
 			arab = append(arab, x)
-		} 
-		fmt.Println (arab)
-
+		}
+// summing arab numbers depending on their position against max
 		max := arab [0]	
-		for _, z := range arab {
-			if z > max {
-			sum = sum + (z - 2*max)
-			max = z
+		for _, num := range arab {
+			if num > max {
+			sum = sum + (num - 2*max)
+			max = num
 			} else {
-				sum = sum + z
-				max = z
+				sum = sum + num
+				max = num
 			}
 		}
 	fmt.Println (sum)
